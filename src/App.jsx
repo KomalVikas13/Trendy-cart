@@ -13,29 +13,34 @@ import AnchorsKids from './components/AnchorsKids'
 import Login from './components/Login'
 import Register from './components/Register'
 import { Route, Routes } from 'react-router-dom'
+import WomenProducts from './components/products/WomenProducts'
 
 function App() {
-  useEffect(() => {
-    const adjustPadding = () => {
-      const fixedElement = document.querySelector(".fixed");
-      const scrollElement = document.querySelector(".scroll");
-      const adjustment = fixedElement.offsetHeight;
-      scrollElement.style.paddingTop = adjustment + 'px';
-    };
+  // useEffect(() => {
+  //   const adjustPadding = () => {
+  //     const fixedElement = document.querySelector(".fixed");
+  //     const scrollElement = document.querySelector(".scroll");
+  //     const adjustment = fixedElement.offsetHeight;
+  //     scrollElement.style.paddingTop = adjustment + 'px';
+  //   };
 
-    adjustPadding();
+  //   adjustPadding();
 
-    window.addEventListener('resize', adjustPadding);
+  //   window.addEventListener('resize', adjustPadding);
 
-    // Cleanup event listeners on component unmount
-    return () => {
-      window.removeEventListener('resize', adjustPadding);
-    };
-  }, []);
+  //   // Cleanup event listeners on component unmount
+  //   return () => {
+  //     window.removeEventListener('resize', adjustPadding);
+  //   };
+  // }, []);
 
   return (
-      <div className='app'>
-        <div className="fixed">
+    <>
+    
+      <WomenProducts></WomenProducts>
+      {/*<div className='app'>
+       
+         <div className="fixed">
           <Header></Header>
           <NavigationBar></NavigationBar>
           <Routes>
@@ -54,7 +59,8 @@ function App() {
           <HomeSection2></HomeSection2>
           <Footer></Footer>
         </div>
-      </div>
+      </div> */}
+      </>
   )
 }
 
