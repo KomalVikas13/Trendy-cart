@@ -14,6 +14,7 @@ import Login from './components/Login'
 import Register from './components/Register'
 import { Route, Routes } from 'react-router-dom'
 import WomenProducts from './components/products/WomenProducts'
+import MenProducts from './components/products/MenProducts'
 
 function App() {
   // useEffect(() => {
@@ -37,7 +38,8 @@ function App() {
   return (
     <>
     
-      <WomenProducts></WomenProducts>
+      {/* <WomenProducts></WomenProducts> */}
+      <MenProducts></MenProducts>
       {/*<div className='app'>
        
          <div className="fixed">
