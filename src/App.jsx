@@ -9,7 +9,7 @@ import HomeSection1 from './components/HomeSection1'
 import HomeSection2 from './components/HomeSection2'
 import AnchorsWomen from './components/AnchorsWomen'
 import AnchorsMen from './components/AnchorsMen'
-import AnchorsKids from './components/AnchorsKids'
+import AnchorsAll from './components/AnchorsAll'
 import Login from './components/Login'
 import Register from './components/Register'
 import { Route, Routes } from 'react-router-dom'
@@ -56,7 +56,7 @@ function App() {
             <Routes>
               <Route path='womenSection' element={<AnchorsWomen></AnchorsWomen>}></Route>
               <Route path='menSection' element={<AnchorsMen></AnchorsMen>}></Route>
-              <Route path='kidsSection' element={<AnchorsKids></AnchorsKids>}></Route>
+              <Route path='allSection' element={<AnchorsAll></AnchorsAll>}></Route>
             </Routes>
 
           <HomeSection1></HomeSection1>

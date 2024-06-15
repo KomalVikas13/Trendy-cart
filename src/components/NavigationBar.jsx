@@ -18,8 +18,8 @@ const NavigationBar = ()=>{
                     <br />
                     <div className="underline" />
                 </li>
-                <li onClick={()=>navigator("kidsSection")}>
-                    <a href="#">Kids</a>
+                <li onClick={()=>navigator("allSection")}>
+                    <a href="#">All</a>
                     <br />
                     <div className="underline" />
                 </li>

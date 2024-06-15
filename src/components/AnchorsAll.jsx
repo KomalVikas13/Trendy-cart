@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "../style_sheets/NavigationAnchors.css"
 
-const AnchorsKids = ()=>{
+const AnchorsAll = ()=>{
     let navigator = useNavigate();
     return(
         <section className="hidden_section_anchors">
@@ -19,4 +19,4 @@ const AnchorsKids = ()=>{
         </section>
     )
 }
-export default AnchorsKids;
+export default AnchorsAll;
