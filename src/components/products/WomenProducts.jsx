@@ -11,6 +11,7 @@ const WomenProducts = ()=>{
         console.log(response1.data.products);
         setData(()=>response1.data.products)
         console.log(response3.data);
+        setRecommded(response3.data);
         // setRecommded(()=>response3.data.data);
         // console.log(response3.data.data);
         // setData(response.data.products);
@@ -21,12 +22,14 @@ const WomenProducts = ()=>{
     },[])
     return(
         <>
+            <div className="container text-center">
+            <div className="row justify-content-md-center" style={{gap: "5rem"}}>
             {
                 data.map((element,index)=>{
                     if(element.category == "beauty"){
                         return (
-                            <div className="card" style={{ width: "18rem" }} key={element.id}>
-                                <img src={element.thumbnail} className="card-img-top" alt="..." />
+                            <div className="card col-md-auto" style={{ width: "18rem" }} key={element.id}>
+                                <img src={element.thumbnail} height={300} className="card-img-top" alt="..." />
                                 <div className="card-body">
                                     <h5 className="card-title">{element.title}</h5>
                                     <p className="card-text">
@@ -47,19 +50,21 @@ const WomenProducts = ()=>{
                     }
                 })
             }
+            </div>
+            </div>
             <h2>Recommended products</h2>
+            <div className="container text-center">
+            <div className="row justify-content-md-center" style={{gap: "5rem"}}>
             {
                 recommended.map((element,index)=>{
-                    console.log(element.images[0].url);
+                    if(element.category == "women's clothing" || element.category == "jewelery")
                     return(
-                        <div className="card" style={{ width: "18rem" }} key={element.id}>
-                            <img src={element.images[0].url} className="card-img-top" alt="..." />
+                        <div className="card col-md-auto" style={{ width: "18rem" }} key={element.id}>
+                            <img src={element.image} height={300} className="card-img-top" alt="..." />
                             <div className="card-body">
-                                <h5 className="card-title">Card title</h5>
-                                <p className="card-text">
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
-                                </p>
+                                <h5 className="card-title">{element.title}</h5>
+                                <p className="card-text">Price : ₹{(element.price*82).toFixed(2)}</p>
+                                <p className="card-text">Price : ₹{element.rating.rate} ({element.rating.count})</p>
                                 <a href="#" className="btn btn-primary">
                                 Go somewhere
                                 </a>
@@ -69,6 +74,8 @@ const WomenProducts = ()=>{
                     )
                 })
             }
+            </div>
+            </div>
         </>
     )
 }
