@@ -39,9 +39,9 @@ function App() {
   return (
     <>
     
-      {/* <WomenProducts></WomenProducts> */}
+      <WomenProducts></WomenProducts>
       {/* <MenProducts></MenProducts> */}
-      <AllProducts></AllProducts>
+      {/* <AllProducts></AllProducts> */}
       {/*<div className='app'>
        
          <div className="fixed">

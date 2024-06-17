@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
+import "../../style_sheets/Products.css";
 
 const MenProducts = ()=>{
     const [data, setData] = useState([]);
@@ -32,7 +33,7 @@ const MenProducts = ()=>{
                             <div className="card col-md-auto" style={{ width: "18rem" }} key={element.id}>
                                 <img src={element.image} height={300} className="card-img-top" alt="..." />
                                 <div className="card-body">
-                                    <h5 className="card-title">{element.title}</h5>
+                                    <h5 className="card-title" title={element.title}>{element.title}</h5>
                                     <p className="card-text">Price : ₹{(element.price*82).toFixed(2)}</p>
                                     <p className="card-text">Price : ₹{element.rating.rate} ({element.rating.count})</p>
                                     <a href="#" className="btn btn-primary">
