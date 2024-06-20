@@ -28,7 +28,7 @@ const MenProducts = ()=>{
             {
                 (data.length != 0 && recommended.length != 0) ?
                 <>
-                <h1>Men Products</h1>
+                <h1>Men Products</h1> 
             <div className="container text-center">
             <div className="row justify-content-md-center" style={{gap: "5rem"}}>
             {
