@@ -23,6 +23,11 @@ const WomenProducts = ()=>{
     },[])
     return(
         <>
+        
+            {
+                (data.length != 0 && recommended.length != 0 )?  
+            <>
+            <h1>Women products</h1>
             <div className="container text-center">
             <div className="row justify-content-md-center" style={{gap: "5rem"}}>
             {
@@ -80,6 +85,13 @@ const WomenProducts = ()=>{
             }
             </div>
             </div>
+            </>
+            :
+            
+                <div className="spinner_style">
+                    <i class="fa fa-spinner fa-spin "></i>
+                </div>
+            }
         </>
     )
 }

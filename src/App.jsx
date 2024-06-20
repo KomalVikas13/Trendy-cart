@@ -18,32 +18,26 @@ import MenProducts from './components/products/MenProducts'
 import AllProducts from './components/products/AllProducts'
 
 function App() {
-  // useEffect(() => {
-  //   const adjustPadding = () => {
-  //     const fixedElement = document.querySelector(".fixed");
-  //     const scrollElement = document.querySelector(".scroll");
-  //     const adjustment = fixedElement.offsetHeight;
-  //     scrollElement.style.paddingTop = adjustment + 'px';
-  //   };
+  useEffect(() => {
+    const adjustPadding = () => {
+      const fixedElement = document.querySelector(".fixed");
+      const scrollElement = document.querySelector(".scroll");
+      const adjustment = fixedElement.offsetHeight;
+      scrollElement.style.paddingTop = adjustment + 'px';
+    };
 
-  //   adjustPadding();
+    adjustPadding();
 
-  //   window.addEventListener('resize', adjustPadding);
+    window.addEventListener('resize', adjustPadding);
 
-  //   // Cleanup event listeners on component unmount
-  //   return () => {
-  //     window.removeEventListener('resize', adjustPadding);
-  //   };
-  // }, []);
+    // Cleanup event listeners on component unmount
+    return () => {
+      window.removeEventListener('resize', adjustPadding);
+    };
+  }, []);
 
   return (
-    <>
-    
-      <WomenProducts></WomenProducts>
-      {/* <MenProducts></MenProducts> */}
-      {/* <AllProducts></AllProducts> */}
-      {/*<div className='app'>
-       
+      <div className='app'>
          <div className="fixed">
           <Header></Header>
           <NavigationBar></NavigationBar>
@@ -54,17 +48,21 @@ function App() {
         </div>
         <div className='scroll'>
             <Routes>
-              <Route path='womenSection' element={<AnchorsWomen></AnchorsWomen>}></Route>
-              <Route path='menSection' element={<AnchorsMen></AnchorsMen>}></Route>
-              <Route path='allSection' element={<AnchorsAll></AnchorsAll>}></Route>
+              <Route path='womenSection' element={<WomenProducts></WomenProducts>}></Route>
+              <Route path='menSection' element={<MenProducts></MenProducts>}></Route>
+              <Route path='allSection' element={<AllProducts></AllProducts>}></Route>
             </Routes>
-
-          <HomeSection1></HomeSection1>
-          <HomeSection2></HomeSection2>
+            <Routes>
+              <Route path='/' element={
+                <>
+                  <HomeSection1></HomeSection1>
+                  <HomeSection2></HomeSection2>
+                </>
+              }></Route>
+            </Routes>
           <Footer></Footer>
         </div>
-      </div> */}
-      </>
+      </div>
   )
 }
 

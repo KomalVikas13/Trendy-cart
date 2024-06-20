@@ -11,12 +11,12 @@ header {
     padding: 15px;
     border-radius: 10px;
     box-shadow: 1px 1px 5px;
-    width: 98%;
+    width: 100%;
     background-color: white;
 }
 
 .title {
-    width: 15%;
+    width: 20%;
     justify-content: left;
     padding-left: 40px;
 }

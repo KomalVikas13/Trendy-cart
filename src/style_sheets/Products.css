@@ -4,3 +4,12 @@
     text-overflow: ellipsis;
     /* width: 200px; Adjust as necessary */
   }
+
+.spinner_style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  border: 1px solid black;
+  height: 500px;
+}

@@ -8,6 +8,11 @@ const NavigationBar = ()=>{
         <>
             <nav>
             <ul>
+                <li onClick={()=>navigator("/")}>
+                    <a href="#">Home</a>
+                    <br />
+                    <div className="underline" />
+                </li>
                 <li onClick={()=>navigator("womenSection")}>
                     <a href="#">Women</a>
                     <br />

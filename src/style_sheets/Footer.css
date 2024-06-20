@@ -15,6 +15,9 @@ footer {
 
 .footer_headings{
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .footer_headings p {
     color: gray;
@@ -22,7 +25,11 @@ footer {
     margin-bottom: 10px;
     font-size: 12px;
 }
-
+.footer_lists{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .footer_lists ul {
     list-style: none;
 }

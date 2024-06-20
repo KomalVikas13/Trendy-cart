@@ -18,8 +18,11 @@ const AllProducts = ()=>{
     },[])
     return(
         <>
+        {
+            (data1.length != 0 && data2.length != 0) ?
+        <>
+            
             <h2>All products</h2>
-
             <div className="container text-center">
             <div className="row justify-content-md-center" style={{gap: "5rem"}}>
             {
@@ -70,6 +73,13 @@ const AllProducts = ()=>{
             }
             </div>
             </div>
+        </>
+        :(
+            <div className="spinner_style">
+                <i class="fa fa-spinner fa-spin "></i>
+            </div>
+            ) 
+        }
         </>
     )
 }
