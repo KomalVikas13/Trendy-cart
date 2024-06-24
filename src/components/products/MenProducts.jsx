@@ -7,17 +7,11 @@ const MenProducts = ()=>{
     const [recommended, setRecommded] = useState([]);
     let menProd = async ()=>{
         let response1 = await axios.get(`https://dummyjson.com/products`); 
-        let response2 = await axios.get(`https://jsonplaceholder.typicode.com/posts`);
-        let response3 = await axios.get(`https://fakestoreapi.com/products?_limit=50`);
+        let response2 = await axios.get(`https://fakestoreapi.com/products?_limit=50`);
         console.log(response1.data.products);
         setRecommded(()=>response1.data.products);
         console.log(response2.data);
-        console.log(response3.data);
         setData(response3.data);
-        // setRecommded(()=>response3.data.data);
-        // console.log(response3.data.data);
-        // setData(response.data.products);
-        // console.log(data[0]);
     }
     useEffect(()=>{
         menProd();
