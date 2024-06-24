@@ -28,7 +28,7 @@ const MenProducts = ()=>{
             {
                 (data.length != 0 && recommended.length != 0) ?
                 <>
-                <h1>Men Products</h1> 
+                <h3>Men Products</h3> 
             <div className="container text-center">
             <div className="row justify-content-md-center" style={{gap: "5rem"}}>
             {
@@ -38,11 +38,11 @@ const MenProducts = ()=>{
                             <div className="card col-md-auto" style={{ width: "18rem" }} key={element.id}>
                                 <img src={element.image} height={300} className="card-img-top" alt="..." />
                                 <div className="card-body">
-                                    <h5 className="card-title" title={element.title}>{element.title}</h5>
+                                    <h5 className="card-title ellipsis-single-line" title={element.title}>{element.title}</h5>
                                     <p className="card-text">Price : ₹{(element.price*82).toFixed(2)}</p>
                                     <p className="card-text">Rating : {element.rating.rate} ({element.rating.count})</p>
                                     <a href="#" className="btn btn-primary">
-                                    Go somewhere
+                                    View product
                                     </a>
                                 </div>
                             </div>
@@ -54,7 +54,7 @@ const MenProducts = ()=>{
             }
             </div>
             </div>
-            <h2>Recommended products</h2>
+            <h3>Recommended products</h3>
             <div className="container text-center">
             <div className="row justify-content-md-center" style={{gap: "5rem"}}>
             {
@@ -64,7 +64,7 @@ const MenProducts = ()=>{
                             <div className="card col-md-auto" style={{ width: "18rem" }} key={element.id}>
                                 <img src={element.thumbnail} height={300} className="card-img-top" alt="..." />
                                 <div className="card-body">
-                                    <h5 className="card-title">{element.title}</h5>
+                                    <h5 className="card-title ellipsis-single-line" title={element.title}>{element.title}</h5>
                                     <p className="card-text">
                                     Brand : {element.brand}
                                     </p>
@@ -75,7 +75,7 @@ const MenProducts = ()=>{
                                     Rating : {element.rating}
                                     </p>
                                     <a href="#" className="btn btn-primary">
-                                    Go somewhere
+                                    View product
                                     </a>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@ const MenProducts = ()=>{
             </>
             : 
             <div className="spinner_style">
-                <i class="fa fa-spinner fa-spin "></i>
+                <i className="fa fa-spinner fa-spin "></i>
             </div>
         }           
         </>
