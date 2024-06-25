@@ -17,7 +17,7 @@ const AllProducts = ()=>{
         womenProd();
     },[])
     return(
-        <>
+        <div className="section-width">
         {
             (data1.length != 0 && data2.length != 0) ?
         <>
@@ -76,11 +76,11 @@ const AllProducts = ()=>{
         </>
         :(
             <div className="spinner_style">
-                <i class="fa fa-spinner fa-spin "></i>
+                <i className="fa fa-spinner fa-spin"></i>
             </div>
             ) 
         }
-        </>
+        </div>
     )
 }
 export default AllProducts;

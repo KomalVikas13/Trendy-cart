@@ -10,6 +10,13 @@
   justify-content: center;
   align-items: center;
   font-size: 30px;
-  border: 1px solid black;
   height: 500px;
+}
+
+.section-width {
+  width: 77%;
+}
+
+.i_border {
+  border: 0;
 }

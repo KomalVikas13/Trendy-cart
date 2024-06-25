@@ -1,28 +1,45 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "../style_sheets/Filter.css"
+import { useDispatch,useSelector } from "react-redux";
+import { category_dropdown,category_rating,category_prices_mini,category_prices_maxi } from "../Slice/Slice";
 
 const Filter = ()=>{
     const [data1,setData1] = useState([]);
     const [data2,setData2] = useState([]);
+    const dipatch = useDispatch();
     const pricesList = [100,200,300,400,500,600,700,800,900,1000];
 
     const filters = async ()=>{
         const response1 = await axios.get(`https://dummyjson.com/products/category-list`);
         const response2 = await axios.get(`https://fakestoreapi.com/products/categories`);
         setData1(response1.data);
-        console.log(response1.data);
         setData2(response2.data);
-        console.log(response2.data);
     } 
     useEffect(()=>{
         filters();
     },[])
+
+    const selectedValues = (e)=>{
+        const {name,value} = e.target;
+        if(name == "categoryDropdown"){
+            dipatch(category_dropdown(value))
+        }
+        else if(name == "rating"){
+            dipatch(category_rating(value));
+        }
+        else if(name == "pricesCategoryMini"){
+            dipatch(category_prices_mini(value));
+        }
+        else if(name == "pricesCategoryMaxi"){
+            dipatch(category_prices_maxi(value));
+        }
+    }
     return(
         <div className="filter">
             <div className="category">
                 <h3>Category</h3>
-                <select name="categoryDropdown">
+                <select name="categoryDropdown" onChange={selectedValues}>
                     <option name="select">--Select--</option>
                     {
                         data1.map((element,index)=>{
@@ -44,28 +61,28 @@ const Filter = ()=>{
             <div className="customerRatings">
                 <h3>Customer Ratings</h3>
                 <div className="ratingElements">
-                    <input type="radio" value={"1"} name="rating"/><span>less than 1</span>
+                    <input type="radio" value={"1"} name="rating" onChange={selectedValues}/><span>less than 1</span>
                 </div>
                 <div className="ratingElements">
-                    <input type="radio" value={"2"} name="rating"/><span>between 1 and 2</span>
+                    <input type="radio" value={"2"} name="rating" onChange={selectedValues}/><span>between 1 and 2</span>
                 </div>
                 <div className="ratingElements">
-                    <input type="radio" value={"3"} name="rating"/><span>between 2 and 3</span> 
+                    <input type="radio" value={"3"} name="rating" onChange={selectedValues}/><span>between 2 and 3</span> 
                 </div>
                 <div className="ratingElements">
-                    <input type="radio" value={"4"} name="rating"/><span>between 3 and 4</span> 
+                    <input type="radio" value={"4"} name="rating" onChange={selectedValues}/><span>between 3 and 4</span> 
                 </div>
                 <div className="ratingElements">
-                    <input type="radio" value={"5"} name="rating"/><span>between 4 and 5</span> 
+                    <input type="radio" value={"5"} name="rating" onChange={selectedValues}/><span>between 4 and 5</span> 
                 </div>
                 <div className="ratingElements">
-                    <input type="radio" value={"all"} name="rating"/><span>All</span>
+                    <input type="radio" value={"all"} name="rating" onChange={selectedValues}/><span>All</span>
                 </div>
             </div>
             <div className="prices">
                 <h3>Prices</h3>
                 <p>Select range</p>
-                <select>
+                <select name="pricesCategoryMini" onChange={selectedValues}>
                 <option value={"lowest"}>--minimum--</option>
                     {
                         pricesList.map((element,index)=>{
@@ -75,7 +92,7 @@ const Filter = ()=>{
                         })
                     }
                 </select>
-                <select>
+                <select name="pricesCategoryMaxi" onChange={selectedValues}>
                 <option value={"highest"}>--maximum--</option>
                     {
                         pricesList.map((element,index)=>{

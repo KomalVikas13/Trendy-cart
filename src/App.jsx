@@ -16,6 +16,7 @@ import { Route, Routes } from 'react-router-dom'
 import WomenProducts from './components/products/WomenProducts'
 import MenProducts from './components/products/MenProducts'
 import AllProducts from './components/products/AllProducts'
+import Filter from './components/Filter'
 
 function App() {
   useEffect(() => {
@@ -48,9 +49,24 @@ function App() {
         </div>
         <div className='scroll'>
             <Routes>
-              <Route path='womenSection' element={<WomenProducts></WomenProducts>}></Route>
-              <Route path='menSection' element={<MenProducts></MenProducts>}></Route>
-              <Route path='allSection' element={<AllProducts></AllProducts>}></Route>
+              <Route path='womenSection' element={
+                  <div className='filter-products'>
+                    <Filter></Filter>
+                    <WomenProducts></WomenProducts>
+                  </div>
+                }></Route>
+              <Route path='menSection' element={
+                  <div className='filter-products'>
+                    <Filter></Filter>
+                    <MenProducts></MenProducts>
+                  </div>
+                }></Route>
+              <Route path='allSection' element={
+                  <div className='filter-products'>
+                    <Filter></Filter>
+                    <AllProducts></AllProducts>
+                  </div>
+                }></Route>
             </Routes>
             <Routes>
               <Route path='/' element={

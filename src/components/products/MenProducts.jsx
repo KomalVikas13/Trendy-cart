@@ -11,13 +11,13 @@ const MenProducts = ()=>{
         console.log(response1.data.products);
         setRecommded(()=>response1.data.products);
         console.log(response2.data);
-        setData(response3.data);
+        setData(response2.data);
     }
     useEffect(()=>{
         menProd();
     },[])
     return(
-        <>
+        <div className="section-width">
             
             {
                 (data.length != 0 && recommended.length != 0) ?
@@ -82,10 +82,10 @@ const MenProducts = ()=>{
             </>
             : 
             <div className="spinner_style">
-                <i class="fa fa-spinner fa-spin "></i>
+                <i className="fa fa-spinner fa-spin"></i>
             </div>
         }           
-        </>
+        </div>
     )
 }
 export default MenProducts;

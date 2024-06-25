@@ -18,3 +18,8 @@
   z-index: 50;
   background-color: white;
 }
+
+.filter-products {
+  display: flex;
+  gap : 15px;
+}
