@@ -7,7 +7,8 @@ import { category_dropdown,category_rating,category_prices_mini,category_prices_
 const Filter = ()=>{
     const [data1,setData1] = useState([]);
     const [data2,setData2] = useState([]);
-    const dipatch = useDispatch();
+    const display = useSelector(state=>state);
+    const dispatch = useDispatch();
     const pricesList = [100,200,300,400,500,600,700,800,900,1000];
 
     const filters = async ()=>{
@@ -23,16 +24,16 @@ const Filter = ()=>{
     const selectedValues = (e)=>{
         const {name,value} = e.target;
         if(name == "categoryDropdown"){
-            dipatch(category_dropdown(value))
+            dispatch(category_dropdown(value))
         }
         else if(name == "rating"){
-            dipatch(category_rating(value));
+            dispatch(category_rating(value));
         }
         else if(name == "pricesCategoryMini"){
-            dipatch(category_prices_mini(value));
+            dispatch(category_prices_mini(value));
         }
         else if(name == "pricesCategoryMaxi"){
-            dipatch(category_prices_maxi(value));
+            dispatch(category_prices_maxi(value));
         }
     }
     return(

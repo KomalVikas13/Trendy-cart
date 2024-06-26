@@ -17,6 +17,7 @@ import WomenProducts from './components/products/WomenProducts'
 import MenProducts from './components/products/MenProducts'
 import AllProducts from './components/products/AllProducts'
 import Filter from './components/Filter'
+import ProductsComp from './components/ProductsComp'
 
 function App() {
   useEffect(() => {
@@ -52,7 +53,7 @@ function App() {
               <Route path='womenSection' element={
                   <div className='filter-products'>
                     <Filter></Filter>
-                    <WomenProducts></WomenProducts>
+                    <ProductsComp></ProductsComp>
                   </div>
                 }></Route>
               <Route path='menSection' element={
