@@ -15,7 +15,9 @@ const Filter = ()=>{
         const response1 = await axios.get(`https://dummyjson.com/products/category-list`);
         const response2 = await axios.get(`https://fakestoreapi.com/products/categories`);
         setData1(response1.data);
+        console.log(response1.data);
         setData2(response2.data);
+        console.log(response2.data)
     } 
     useEffect(()=>{
         filters();

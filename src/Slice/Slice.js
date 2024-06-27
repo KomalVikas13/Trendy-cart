@@ -8,6 +8,9 @@ const Slice = createSlice({
             "rating" : "",
             "pricesCategoryMini" : "",
             "pricesCategoryMaxi" : ""
+        },
+        filterApplied : {
+            flag : false
         }
     },
     reducers : {
@@ -22,13 +25,17 @@ const Slice = createSlice({
         },
         category_prices_maxi : (state,action)=>{
             state.filter.pricesCategoryMaxi = action.payload;
+        },
+        filter_applied : (state,action)=>{
+            state.filterApplied.flag = action.payload;
         }
     }
 })
 
-export const {category_dropdown,category_rating,category_prices_mini,category_prices_maxi} = Slice.actions;
+export const {category_dropdown,category_rating,category_prices_mini,category_prices_maxi,filter_applied} = Slice.actions;
 export const selectCategoryDropdown = (state) => state.slice1.filter.categoryDropdown;
 export const selectRating = (state) => state.slice1.filter.rating;
 export const selectPricesCategoryMini = (state) => state.slice1.filter.pricesCategoryMini;
 export const selectPricesCategoryMaxi = (state) => state.slice1.filter.pricesCategoryMaxi;
+export const selectFilterApplied = (state)=> state.slice1.filterApplied.flag;
 export default Slice.reducer;

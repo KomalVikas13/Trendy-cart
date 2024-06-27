@@ -59,13 +59,13 @@ function App() {
               <Route path='menSection' element={
                   <div className='filter-products'>
                     <Filter></Filter>
-                    <MenProducts></MenProducts>
+                    <ProductsComp></ProductsComp>
                   </div>
                 }></Route>
               <Route path='allSection' element={
                   <div className='filter-products'>
                     <Filter></Filter>
-                    <AllProducts></AllProducts>
+                    <ProductsComp></ProductsComp>
                   </div>
                 }></Route>
             </Routes>

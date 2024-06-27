@@ -1,29 +1,59 @@
 import { useNavigate } from "react-router-dom";
 import "../style_sheets/NavigationBar.css"
+import { useDispatch } from "react-redux";
+import {category_dropdown,filter_applied} from "../Slice/Slice"
 
 const NavigationBar = ()=>{
     let navigator = useNavigate();
-    
+    const dispatch = useDispatch();
+
+    const navigateToProducts = (e)=>{
+        const {value} = e.currentTarget.dataset;
+        switch(value){
+            case "home" : 
+                        navigator("/");
+                        break;
+            case "women":
+                        dispatch(category_dropdown("women's clothing"));
+                        dispatch(filter_applied("filter_applied"));
+                        navigator("/womenSection");
+                        break;
+            case "men":
+                        dispatch(category_dropdown("men's clothing"));
+                        dispatch(filter_applied("filter_applied"));
+                        navigator("/menSection");
+                        break;
+            case "all":
+                        dispatch(category_dropdown(""));
+                        console.log("dispached1")
+                        dispatch(filter_applied("filter_not_applied"));
+                        console.log("dispached2")
+                        navigator("/allSection");
+                        break;
+        }
+        
+        
+    }
     return(
         <>
             <nav>
             <ul>
-                <li onClick={()=>navigator("/")}>
+                <li data-value={"home"} onClick={navigateToProducts}>
                     <a href="#">Home</a>
                     <br />
                     <div className="underline" />
                 </li>
-                <li onClick={()=>navigator("womenSection")}>
+                <li data-value={"women"} onClick={navigateToProducts}>
                     <a href="#">Women</a>
                     <br />
                     <div className="underline" />
                 </li>
-                <li onClick={()=>navigator("menSection")}>
+                <li data-value={"men"} onClick={navigateToProducts}>
                     <a href="#">Men</a>
                     <br />
                     <div className="underline" />
                 </li>
-                <li onClick={()=>navigator("allSection")}>
+                <li data-value={"all"} onClick={navigateToProducts}>
                     <a href="#">All</a>
                     <br />
                     <div className="underline" />
