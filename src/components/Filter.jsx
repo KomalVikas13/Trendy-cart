@@ -2,12 +2,13 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "../style_sheets/Filter.css"
 import { useDispatch,useSelector } from "react-redux";
-import { category_dropdown,category_rating,category_prices_mini,category_prices_maxi } from "../Slice/Slice";
+import { category_dropdown,category_rating,category_prices_mini,category_prices_maxi,filter_applied } from "../Slice/Slice";
+import { selectPricesCategoryMini } from "../Slice/Slice";
 
 const Filter = ()=>{
     const [data1,setData1] = useState([]);
     const [data2,setData2] = useState([]);
-    const display = useSelector(state=>state);
+    const minimumPrice = useSelector(selectPricesCategoryMini);
     const dispatch = useDispatch();
     const pricesList = [100,200,300,400,500,600,700,800,900,1000];
 
@@ -25,19 +26,27 @@ const Filter = ()=>{
 
     const selectedValues = (e)=>{
         const {name,value} = e.target;
-        if(name == "categoryDropdown"){
-            dispatch(category_dropdown(value))
-        }
-        else if(name == "rating"){
-            dispatch(category_rating(value));
-        }
-        else if(name == "pricesCategoryMini"){
-            dispatch(category_prices_mini(value));
-        }
-        else if(name == "pricesCategoryMaxi"){
-            dispatch(category_prices_maxi(value));
+        switch(name){
+            case "categoryDropdown" :
+                                        {dispatch(category_dropdown(value));
+                                        dispatch(filter_applied("filter_applied"));  
+                                        break;}
+            case "rating" :
+                                        { dispatch(category_rating(value));
+                                        dispatch(filter_applied("filter_applied"));
+                                        break;}
+            case "pricesCategoryMini" :
+                                        {dispatch(category_prices_mini(value));
+                                        dispatch(filter_applied("filter_applied"));
+                                        break;}
+            case "pricesCategoryMaxi" : 
+                                        {dispatch(category_prices_maxi(value));
+                                        dispatch(filter_applied("filter_applied"));
+                                        break;}
         }
     }
+
+    const filterMaximumPrice = pricesList.filter((element)=> element > minimumPrice);
     return(
         <div className="filter">
             <div className="category">
@@ -64,22 +73,22 @@ const Filter = ()=>{
             <div className="customerRatings">
                 <h3>Customer Ratings</h3>
                 <div className="ratingElements">
-                    <input type="radio" value={"1"} name="rating" onChange={selectedValues}/><span>less than 1</span>
+                    <input type="radio" value={1} name="rating" onChange={selectedValues}/><span>less than 1</span>
                 </div>
                 <div className="ratingElements">
-                    <input type="radio" value={"2"} name="rating" onChange={selectedValues}/><span>between 1 and 2</span>
+                    <input type="radio" value={2} name="rating" onChange={selectedValues}/><span>between 1 and 2</span>
                 </div>
                 <div className="ratingElements">
-                    <input type="radio" value={"3"} name="rating" onChange={selectedValues}/><span>between 2 and 3</span> 
+                    <input type="radio" value={3} name="rating" onChange={selectedValues}/><span>between 2 and 3</span> 
                 </div>
                 <div className="ratingElements">
-                    <input type="radio" value={"4"} name="rating" onChange={selectedValues}/><span>between 3 and 4</span> 
+                    <input type="radio" value={4} name="rating" onChange={selectedValues}/><span>between 3 and 4</span> 
                 </div>
                 <div className="ratingElements">
-                    <input type="radio" value={"5"} name="rating" onChange={selectedValues}/><span>between 4 and 5</span> 
+                    <input type="radio" value={5} name="rating" onChange={selectedValues}/><span>between 4 and 5</span> 
                 </div>
                 <div className="ratingElements">
-                    <input type="radio" value={"all"} name="rating" onChange={selectedValues}/><span>All</span>
+                    <input type="radio" value={6} name="rating" onChange={selectedValues}/><span>All</span>
                 </div>
             </div>
             <div className="prices">
@@ -90,7 +99,7 @@ const Filter = ()=>{
                     {
                         pricesList.map((element,index)=>{
                             return(
-                                <option value={"100"} key={index}>{element}</option>
+                                <option value={element} key={index}>{element}</option>
                             )
                         })
                     }
@@ -98,9 +107,9 @@ const Filter = ()=>{
                 <select name="pricesCategoryMaxi" onChange={selectedValues}>
                 <option value={"highest"}>--maximum--</option>
                     {
-                        pricesList.map((element,index)=>{
+                        filterMaximumPrice.map((element,index)=>{
                             return(
-                                <option value={"100"} key={index}>{element}</option>
+                                <option value={element} key={index}>{element}</option>
                             )
                         })
                     }
