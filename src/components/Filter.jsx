@@ -10,7 +10,7 @@ const Filter = ()=>{
     const [data2,setData2] = useState([]);
     const minimumPrice = useSelector(selectPricesCategoryMini);
     const dispatch = useDispatch();
-    const pricesList = [100,200,300,400,500,600,700,800,900,1000];
+    const pricesList = Array(21).fill().map((_,index)=> (index * 10000))
 
     const filters = async ()=>{
         const response1 = await axios.get(`https://dummyjson.com/products/category-list`);
@@ -48,10 +48,10 @@ const Filter = ()=>{
 
     const filterMaximumPrice = pricesList.filter((element)=> element > minimumPrice);
     return(
-        <div className="filter">
+        <div className="filter shadow bg-white">
             <div className="category">
                 <h3>Category</h3>
-                <select name="categoryDropdown" onChange={selectedValues}>
+                <select className="form-control" name="categoryDropdown" onChange={selectedValues}>
                     <option name="select">--Select--</option>
                     {
                         data1.map((element,index)=>{
@@ -94,8 +94,8 @@ const Filter = ()=>{
             <div className="prices">
                 <h3>Prices</h3>
                 <p>Select range</p>
-                <select name="pricesCategoryMini" onChange={selectedValues}>
-                <option value={"lowest"}>--minimum--</option>
+                <select name="pricesCategoryMini" className="form-control" onChange={selectedValues}>
+                <option value={pricesList[0]}>--minimum--</option>
                     {
                         pricesList.map((element,index)=>{
                             return(
@@ -104,8 +104,8 @@ const Filter = ()=>{
                         })
                     }
                 </select>
-                <select name="pricesCategoryMaxi" onChange={selectedValues}>
-                <option value={"highest"}>--maximum--</option>
+                <select name="pricesCategoryMaxi" className="form-control" onChange={selectedValues}>
+                <option value={pricesList[pricesList.length-1]}>--maximum--</option>
                     {
                         filterMaximumPrice.map((element,index)=>{
                             return(
