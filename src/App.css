@@ -1,7 +1,7 @@
 *{
   margin: 0px;
   padding: 0px;
-  font-family: "Trirong", serif;
+  /* font-family: "Trirong", serif; */
 
 }
 .app {
@@ -22,4 +22,9 @@
 .filter-products {
   display: flex;
   gap : 15px;
+}
+
+.scroll {
+  height: 100vh;
+  overflow: overlay;
 }
