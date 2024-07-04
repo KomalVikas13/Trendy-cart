@@ -44,32 +44,32 @@ function App() {
         </div>
         <div className='scroll'>
             <Routes>
-              <Route path='womenSection' element={
-                  <div className='filter-products'>
-                    <Filter></Filter>
-                    <ProductsComp></ProductsComp>
-                  </div>
-                }></Route>
-              <Route path='menSection' element={
-                  <div className='filter-products'>
-                    <Filter></Filter>
-                    <ProductsComp></ProductsComp>
-                  </div>
-                }></Route>
-              <Route path='allSection' element={
-                  <div className='filter-products'>
-                    <Filter></Filter>
-                    <ProductsComp></ProductsComp>
-                  </div>
-                }></Route>
-            </Routes>
-            <Routes>
               <Route path='/' element={
                 <>
                   <HomeSection1></HomeSection1>
                   <HomeSection2></HomeSection2>
                 </>
               }></Route>
+            </Routes>
+            <Routes>
+              <Route path='womenSection' element={
+                  <div className='filter-products bg-light'>
+                    <Filter></Filter>
+                    <ProductsComp></ProductsComp>
+                  </div>
+                }></Route>
+              <Route path='menSection' element={
+                  <div className='filter-products bg-light'>
+                    <Filter></Filter>
+                    <ProductsComp></ProductsComp>
+                  </div>
+                }></Route>
+              <Route path='allSection' element={
+                  <div className='filter-products bg-light'>
+                    <Filter></Filter>
+                    <ProductsComp></ProductsComp>
+                  </div>
+                }></Route>
             </Routes>
           <Footer></Footer>
         </div>
