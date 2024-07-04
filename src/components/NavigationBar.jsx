@@ -24,7 +24,7 @@ const NavigationBar = ()=>{
                         navigator("/menSection");
                         break;
             case "all":
-                        dispatch(category_dropdown(""));
+                        dispatch(category_dropdown("all products"));
                         console.log("dispached1")
                         dispatch(filter_applied("filter_not_applied"));
                         console.log("dispached2")
