@@ -4,10 +4,10 @@ const Slice = createSlice({
     name : "slice1",
     initialState : {
         filter : {
-            categoryDropdown : "",
-            rating : 5,
+            categoryDropdown : "all products",
+            rating : 6,
             pricesCategoryMini : 100,
-            pricesCategoryMaxi : 10000
+            pricesCategoryMaxi : 210000
         },
         filterApplied : {
             flag : false
