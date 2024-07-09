@@ -1,3 +1,18 @@
 body::-webkit-scrollbar {
   display: none;
 }
+
+/* Total scrollbar width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Scrollbar handle */
+::-webkit-scrollbar-thumb {
+  background: #afb8f9;
+  border-radius: 6px;
+}

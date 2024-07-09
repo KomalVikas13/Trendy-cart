@@ -7,15 +7,11 @@ import NavigationBar from './components/NavigationBar'
 import Footer from './components/Footer'
 import HomeSection1 from './components/HomeSection1'
 import HomeSection2 from './components/HomeSection2'
-import AnchorsWomen from './components/AnchorsWomen'
-import AnchorsMen from './components/AnchorsMen'
-import AnchorsAll from './components/AnchorsAll'
 import Login from './components/Login'
 import Register from './components/Register'
 import { Route, Routes } from 'react-router-dom'
-import WomenProducts from './components/products/WomenProducts'
-import MenProducts from './components/products/MenProducts'
-import AllProducts from './components/products/AllProducts'
+import Filter from './components/Filter'
+import ProductsComp from './components/ProductsComp'
 
 function App() {
   useEffect(() => {
@@ -48,17 +44,18 @@ function App() {
         </div>
         <div className='scroll'>
             <Routes>
-              <Route path='womenSection' element={<WomenProducts></WomenProducts>}></Route>
-              <Route path='menSection' element={<MenProducts></MenProducts>}></Route>
-              <Route path='allSection' element={<AllProducts></AllProducts>}></Route>
-            </Routes>
-            <Routes>
               <Route path='/' element={
                 <>
                   <HomeSection1></HomeSection1>
                   <HomeSection2></HomeSection2>
                 </>
               }></Route>
+              <Route path='products' element={
+                  <div className='filter-products bg-light'>
+                    <Filter></Filter>
+                    <ProductsComp></ProductsComp>
+                  </div>
+                }></Route>
             </Routes>
           <Footer></Footer>
         </div>

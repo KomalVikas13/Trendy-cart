@@ -1,0 +1,21 @@
+.filter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* background-color: rgb(213, 233, 240); */
+    height: 700px;
+    width: 300px;
+    padding: 20px;
+    margin: 10px 0 0 10px;
+    /* border-radius: 15px; */
+}
+
+.customerRatings {
+    display: flex;
+    flex-direction: column;
+}
+
+.ratingElements {
+    display: flex;
+    gap: 10px;
+}

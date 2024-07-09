@@ -2,7 +2,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    /* width: 200px; Adjust as necessary */
+    font-weight: bold;
   }
 
 .spinner_style {
@@ -10,6 +10,47 @@
   justify-content: center;
   align-items: center;
   font-size: 30px;
-  border: 1px solid black;
   height: 500px;
 }
+
+.products_section {
+  width: 77%;
+  padding: 20px;
+}
+
+.products_title {
+  padding: 10px;
+  font-size: 30px;
+  width: 85%;
+  margin-bottom: 20px;
+}
+
+.products_boxes:hover {
+  box-shadow: 9px 10px 19px 0px #80808085;
+}
+
+.warnings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family:Arial, Helvetica, sans-serif;
+  color: gray;
+  height: 300px;
+}
+
+.i_border {
+  border: 0;
+}
+
+.rating-high {
+  color: green;
+}
+
+.rating-medium {
+  color: orange;
+}
+
+.rating-low {
+  color: red;
+}
+
