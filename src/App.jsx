@@ -50,21 +50,7 @@ function App() {
                   <HomeSection2></HomeSection2>
                 </>
               }></Route>
-            </Routes>
-            <Routes>
-              <Route path='womenSection' element={
-                  <div className='filter-products bg-light'>
-                    <Filter></Filter>
-                    <ProductsComp></ProductsComp>
-                  </div>
-                }></Route>
-              <Route path='menSection' element={
-                  <div className='filter-products bg-light'>
-                    <Filter></Filter>
-                    <ProductsComp></ProductsComp>
-                  </div>
-                }></Route>
-              <Route path='allSection' element={
+              <Route path='products' element={
                   <div className='filter-products bg-light'>
                     <Filter></Filter>
                     <ProductsComp></ProductsComp>
