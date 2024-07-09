@@ -7,6 +7,7 @@ import { selectCategoryDropdown, selectRating, selectPricesCategoryMini, selectP
 const ProductsComp = () => {
   const [data1, setData1] = useState([]);
   const [data2, setData2] = useState([]);
+  const [errors, setErrors] = useState("");
   const categoryDropdown = useSelector(selectCategoryDropdown);
   const rating = useSelector(selectRating);
   const pricesCategoryMini = useSelector(selectPricesCategoryMini);
@@ -22,7 +23,7 @@ const ProductsComp = () => {
       console.log(response2.data);
       setData2(response2.data);
     }catch(error){
-      document.write(error);
+      setErrors(error);
     }
     
   };
@@ -110,12 +111,22 @@ const ProductsComp = () => {
           {/* -------------------------------------------------------------- */}
           {
             (filteredData1.length == 0 && filteredData2.length == 0 && filterApplied === "filter_applied") &&
-            (<h1>Currently items in "{categoryDropdown.charAt(0).toUpperCase()+categoryDropdown.slice(1)}" category you have selected are not available</h1>)
+            (<div className="warnings">
+                <p>Currently items in "{categoryDropdown.charAt(0).toUpperCase()+categoryDropdown.slice(1)}" category you have selected are not available</p>
+              </div>)
           }
           {
             (filteredData1.length == 0 && filteredData2.length == 0 && filterApplied !== "filter_applied") &&
-            (<h1>Please select a category to display products</h1>) 
+            (<div className="warnings">
+              <p>Please select a category to display products</p>
+            </div>) 
           }
+          {/* {
+            (errors != "") && 
+            (<div className="warnings">
+              <p>{errors}</p>
+            </div>) 
+          } */}
         </>
       ) : (
         <div className="spinner_style">
