@@ -1,5 +1,9 @@
 # React + Vite
 
+Node.js must be installed to run this project.
+
+To run this application use  "npm run Trendy-cart" command in terminal.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
